@@ -1,7 +1,28 @@
-<app-header></app-header>
+<div class="layout-container">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h1>Portfolio - Felipe Lima de Oliveira</h1>
+    </div>
 
-<main id="main-content">
-  <router-outlet></router-outlet>
-</main>
+    <nav class="sidebar-nav">
+      <ul>
+        <li>
+          <a routerLink="/curriculo" routerLinkActive="active">Curriculo</a>
+        </li>
+        <li>
+          <a routerLink="/projetos" routerLinkActive="active">Projetos</a>
+        </li>
+        <li>
+          <a routerLink="/artigos" routerLinkActive="active">Artigos</a>
+        </li>
+        <li>
+          <a routerLink="/contato" routerLinkActive="active">Contato</a>
+        </li>
+      </ul>
+    </nav>
+  </aside>
 
-<app-footer></app-footer>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
