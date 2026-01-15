@@ -12,13 +12,16 @@
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  position: fixed;
+  height: 100vh;
+  overflow-y: auto;
 
   .sidebar-header {
     margin-bottom: 3rem;
 
     h1 {
       font-size: 2.5rem;
-      font-weight: 300; // Simples
+      font-weight: 300;
       color: #333;
       line-height: 1.2;
       margin: 0;
@@ -38,9 +41,11 @@
           text-decoration: none;
           color: #666;
           font-size: 1.2rem;
-          transition: color 0.2s;
+          transition: all 0.3s ease;
           display: block;
           padding: 0.5rem 0;
+          padding-right: 0.5rem;
+          border-right: 3px solid transparent;
 
           &:hover {
             color: #000;
@@ -49,7 +54,7 @@
           &.active {
             color: #007bff;
             font-weight: 500;
-            border-right: 3px solid #007bff;
+            border-right-color: #007bff;
           }
         }
       }
@@ -58,20 +63,49 @@
 }
 
 .content {
+  margin-left: 300px;
   flex-grow: 1;
-  padding: 3rem;
-  background-color: #fff;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
-/* Responsividade básica para mobile - Sidebar vira menu topo ou hamburger futuramente */
+.section {
+  min-height: 100vh;
+  padding: 4rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.section-curriculo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.section-projetos {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.section-artigos {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+}
+
+.section-contato {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  color: white;
+}
+
 @media (max-width: 768px) {
   .layout-container {
     flex-direction: column;
   }
 
   .sidebar {
+    position: relative;
     width: 100%;
+    height: auto;
     border-right: none;
     border-bottom: 1px solid #dee2e6;
     padding: 1rem;
@@ -79,5 +113,13 @@
     .sidebar-header h1 {
       font-size: 1.8rem;
     }
+  }
+
+  .content {
+    margin-left: 0;
+  }
+
+  .section {
+    padding: 2rem 1rem;
   }
 }

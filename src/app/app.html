@@ -7,22 +7,36 @@
     <nav class="sidebar-nav">
       <ul>
         <li>
-          <a routerLink="/curriculo" routerLinkActive="active">Curriculo</a>
+          <a href="#curriculo" [class.active]="activeSection() === 'curriculo'">Curriculo</a>
         </li>
         <li>
-          <a routerLink="/projetos" routerLinkActive="active">Projetos</a>
+          <a href="#projetos" [class.active]="activeSection() === 'projetos'">Projetos</a>
         </li>
         <li>
-          <a routerLink="/artigos" routerLinkActive="active">Artigos</a>
+          <a href="#artigos" [class.active]="activeSection() === 'artigos'">Artigos</a>
         </li>
         <li>
-          <a routerLink="/contato" routerLinkActive="active">Contato</a>
+          <a href="#contato" [class.active]="activeSection() === 'contato'">Contato</a>
         </li>
       </ul>
     </nav>
   </aside>
 
   <main class="content">
-    <router-outlet></router-outlet>
+    <section id="curriculo" class="section section-curriculo">
+      <app-curriculo></app-curriculo>
+    </section>
+
+    <section id="projetos" class="section section-projetos">
+      <app-projetos></app-projetos>
+    </section>
+
+    <section id="artigos" class="section section-artigos">
+      <app-artigos></app-artigos>
+    </section>
+
+    <section id="contato" class="section section-contato">
+      <app-contato></app-contato>
+    </section>
   </main>
 </div>
