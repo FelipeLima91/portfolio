@@ -1,28 +1,34 @@
 <div class="layout-container">
-  <aside class="sidebar">
-    <div class="sidebar-header">
-      <h1>Portfolio - Felipe Lima de Oliveira</h1>
-    </div>
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <h1>Felipe Lima de Oliveira</h1>
+      </div>
 
-    <nav class="sidebar-nav">
-      <ul>
-        <li>
-          <a href="#curriculo" [class.active]="activeSection() === 'curriculo'">Curriculo</a>
-        </li>
-        <li>
-          <a href="#projetos" [class.active]="activeSection() === 'projetos'">Projetos</a>
-        </li>
-        <li>
-          <a href="#artigos" [class.active]="activeSection() === 'artigos'">Artigos</a>
-        </li>
-        <li>
-          <a href="#contato" [class.active]="activeSection() === 'contato'">Contato</a>
-        </li>
-      </ul>
-    </nav>
-  </aside>
+      <nav class="nav-links">
+        <ul>
+          <li>
+            <a href="#curriculo" [class.active]="activeSection() === 'curriculo'">Curriculo</a>
+          </li>
+          <li>
+            <a href="#projetos" [class.active]="activeSection() === 'projetos'">Projetos</a>
+          </li>
+          <li>
+            <a href="#artigos" [class.active]="activeSection() === 'artigos'">Artigos</a>
+          </li>
+          <li>
+            <a href="#contato" [class.active]="activeSection() === 'contato'">Contato</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main class="content">
+    <section id="resumo" class="section section-resumo">
+      <app-resumo></app-resumo>
+    </section>
+
     <section id="curriculo" class="section section-curriculo">
       <app-curriculo></app-curriculo>
     </section>

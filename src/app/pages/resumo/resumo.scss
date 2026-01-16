@@ -1,0 +1,37 @@
+.resumo-container {
+  display: flex;
+  justify-content: flex-start; // Left aligned
+  align-items: center;
+  text-align: left; // Left aligned
+  width: 100%;
+}
+
+.content-wrapper {
+  max-width: 900px;
+}
+
+.intro-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #666;
+  margin: 0 0 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.bio-text {
+  font-size: 3rem; // Large
+  font-weight: 300;
+  line-height: 1.2;
+  color: #333;
+  margin: 0;
+
+  .highlight-name {
+    color: #ff5722; // Vibrant Orange
+    font-weight: 600;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}

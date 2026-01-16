@@ -1,0 +1,90 @@
+.contato-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.contato-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 4rem;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
+  }
+}
+
+.contato-description {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  text-align: left;
+
+  @media (max-width: 900px) {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column; // Stack vertically
+  gap: 1rem; // Vertical gap
+  align-items: stretch; // Make them same width
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem; // Matching CV button padding
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px; // Matching CV button radius
+  font-size: 1rem; // Matching CV button font size
+  font-weight: 500;
+  transition: all 0.2s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 120px; // Ensure consistent minimum width
+  box-shadow: none; // Minimalist start
+
+  &:hover {
+    transform: translateY(-2px);
+    background-color: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .contato-title {
+    font-size: 2rem;
+  }
+
+  .contato-description {
+    font-size: 1rem;
+  }
+
+  .social-link {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}

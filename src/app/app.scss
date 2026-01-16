@@ -1,60 +1,63 @@
 .layout-container {
-  display: flex;
+  display: block; // Changed from flex to block as we don't need side-by-side anymore
   min-height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #333;
 }
 
-.sidebar {
-  width: 300px;
-  background-color: #f8f9fa;
-  border-right: 1px solid #dee2e6;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
+.top-nav {
   position: fixed;
-  height: 100vh;
-  overflow-y: auto;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
 
-  .sidebar-header {
-    margin-bottom: 3rem;
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
+  .logo {
     h1 {
-      font-size: 2.5rem;
-      font-weight: 300;
+      font-size: 1.2rem; // Reduced size
+      font-weight: 600;
       color: #333;
-      line-height: 1.2;
       margin: 0;
+      letter-spacing: -0.5px;
     }
   }
 
-  .sidebar-nav {
+  .nav-links {
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      display: flex;
+      gap: 2rem;
 
       li {
-        margin-bottom: 1rem;
-
         a {
           text-decoration: none;
           color: #666;
-          font-size: 1.2rem;
-          transition: all 0.3s ease;
-          display: block;
-          padding: 0.5rem 0;
-          padding-right: 0.5rem;
-          border-right: 3px solid transparent;
+          font-size: 1rem;
+          font-weight: 500;
+          transition: color 0.2s ease;
 
           &:hover {
             color: #000;
           }
 
           &.active {
-            color: #007bff;
-            font-weight: 500;
-            border-right-color: #007bff;
+            color: #000;
+            font-weight: 700;
           }
         }
       }
@@ -63,60 +66,45 @@
 }
 
 .content {
-  margin-left: 300px;
-  flex-grow: 1;
-  overflow-y: auto;
-  scroll-behavior: smooth;
+  margin-left: 0;
+  padding-top: 80px; // Space for fixed header
 }
 
 .section {
+  scroll-margin-top: 100px; // Ensure anchors are not hidden behind fixed header
   min-height: 100vh;
-  padding: 4rem 3rem;
+  padding: 4rem 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.section-curriculo {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-}
-
-.section-projetos {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  color: white;
-}
-
-.section-artigos {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-  color: white;
-}
-
+// Minimalist sections - no gradients
+.section-resumo,
+.section-curriculo,
+.section-projetos,
+.section-artigos,
 .section-contato {
-  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
-  color: white;
+  background: white;
+  color: #333;
 }
+
 
 @media (max-width: 768px) {
-  .layout-container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-bottom: 1px solid #dee2e6;
+  .top-nav {
     padding: 1rem;
-
-    .sidebar-header h1 {
-      font-size: 1.8rem;
+    
+    .nav-container {
+      flex-direction: column;
+      gap: 1rem;
     }
-  }
 
-  .content {
-    margin-left: 0;
+    .nav-links ul {
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
   }
 
   .section {
