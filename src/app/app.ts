@@ -17,23 +17,41 @@ export class App implements AfterViewInit {
   ngAfterViewInit() {
     setTimeout(() => {
       this.setupSmoothScroll();
+      this.setupScrollSpy();
     }, 100);
+  }
+
+  private setupScrollSpy() {
+    const sections = document.querySelectorAll('section[id]');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (id) {
+            this.activeSection.set(id);
+          }
+        }
+      });
+    }, {
+      rootMargin: '-50% 0px -50% 0px' // Trigger when section is in middle of viewport
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
   }
 
   private setupSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
-    console.log('Setup: Links encontrados:', links.length);
     
     links.forEach(link => {
       link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetId = link.getAttribute('href')?.substring(1);
-        console.log('Clicou em:', targetId);
         
         if (targetId) {
-          // Atualizar seção ativa ao clicar
           this.activeSection.set(targetId);
-          console.log('activeSection atualizado para:', this.activeSection());
           
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
