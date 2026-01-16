@@ -1,4 +1,5 @@
 import { Component, AfterViewInit, signal } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { CurriculoComponent } from './pages/curriculo/curriculo';
 import { ProjetosComponent } from './pages/projetos/projetos';
 import { ArtigosComponent } from './pages/artigos/artigos';
@@ -10,6 +11,14 @@ import { ResumoComponent } from './pages/resumo/resumo';
   imports: [CurriculoComponent, ProjetosComponent, ArtigosComponent, ContatoComponent, ResumoComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
+  animations: [
+    trigger('fadeIn', [
+      transition(':enter', [
+        style({ opacity: 0 }),
+        animate('800ms ease-out', style({ opacity: 1 }))
+      ])
+    ])
+  ]
 })
 export class App implements AfterViewInit {
   activeSection = signal<string>('curriculo');

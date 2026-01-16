@@ -1,59 +1,76 @@
-# Portfolio
+# Portfolio Profissional - Felipe Lima de Oliveira
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
+Este projeto é o portfólio pessoal e profissional de Felipe Lima de Oliveira, desenvolvido como uma Single Page Application (SPA) moderna e responsiva. O objetivo é apresentar experiência profissional, projetos e artigos de forma clara, acessível e esteticamente minimalista.
 
-## Development server
+🔗 **Link do Projeto:** [https://felipelima91.github.io/portfolio/](https://felipelima91.github.io/portfolio/)
 
-To start a local development server, run:
+## 🎯 Finalidade
 
-```bash
-ng serve
-```
+Servir como cartão de visitas digital para recrutadores e colegas da área de tecnologia, demonstrando habilidades técnicas em desenvolvimento web (Angular, TypeScript, SCSS) e conhecimento em práticas de engenharia de software e serviços AWS.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🚀 Funcionalidades
 
-## Code scaffolding
+- **Navegação SPA**: Navegação fluida sem recarregamento de página.
+- **Header Fixo**: Menu de navegação sempre acessível no topo da tela.
+- **Scroll Suave**: Rolagem suave ao clicar nos links de navegação ("smooth scroll").
+- **Scroll Spy**: O menu destaca automaticamente a seção que está visível na tela durante a rolagem.
+- **Design Responsivo**: Layout adaptável para desktops, tablets e dispositivos móveis.
+- **Download de CV**: Integração direta para visualização/download do currículo completo.
+- **Links Sociais**: Acesso rápido ao LinkedIn, GitHub e WhatsApp.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🧩 Componentes Principais
 
-```bash
-ng generate component component-name
-```
+O projeto é estruturado em componentes Angular modulares:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 1. `Header` (Navegação)
 
-```bash
-ng generate --help
-```
+Barra superior fixa contendo o nome do profissional e links para as seções (Curriculo, Projetos, Artigos, Contato). Responsável pela navegação rápida.
 
-## Building
+### 2. `Resumo` (Home/Intro)
 
-To build the project run:
+Seção de "Boas-vindas" com tipografia hierárquica (Nome em destaque laranja) e breve apresentação profissional.
 
-```bash
-ng build
-```
+### 3. `Curriculo`
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Apresenta um resumo da atuação atual (Itaú Unibanco), tecnologias utilizadas (AWS, Observabilidade) e formação acadêmica. Inclui o botão de ação para o CV completo.
 
-## Running unit tests
+### 4. `Projetos`
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Seção dedicada à exibição dos principais projetos desenvolvidos, com descrições e links.
 
-```bash
-ng test
-```
+### 5. `Artigos`
 
-## Running end-to-end tests
+Espaço para compartilhar conhecimento e publicações técnicas.
 
-For end-to-end (e2e) testing, run:
+### 6. `Contato` (Rodapé)
 
-```bash
-ng e2e
-```
+Seção final com layout "clean", contendo links diretos para contato profissional e redes sociais, padronizados com o design visual do site.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🛠️ Tecnologias Utilizadas
 
-## Additional Resources
+- **Angular 19+**: Framework principal.
+- **TypeScript**: Lógica e tipagem segura.
+- **SCSS (Sass)**: Estilização modular e mixins.
+- **HTML5**: Estrutura semântica.
+- **GitHub Pages**: Hospedagem e deploy contínuo (CD).
+- **GitHub Actions**: Pipeline de automação para build e deploy.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📦 Como rodar localmente
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/FelipeLima91/portfolio.git
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Execute o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
+4. Acesse `http://localhost:4200/`.
+
+---
+
+_Desenvolvido por Felipe Lima de Oliveira._
