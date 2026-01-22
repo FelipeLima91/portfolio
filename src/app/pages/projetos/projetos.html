@@ -1,3 +1,40 @@
-<p>
-  projetos works!
-</p>
+<div class="projetos-container">
+  <h1 class="projetos-title">Meus Projetos</h1>
+  
+  <p-carousel 
+    [value]="projects" 
+    [numVisible]="3" 
+    [numScroll]="1" 
+    [circular]="true"
+    [autoplayInterval]="5000"
+    [responsiveOptions]="responsiveOptions">
+    
+    <!-- Template customizado para cada item do carrossel -->
+    <ng-template let-project pTemplate="item">
+      <div class="project-card">
+        <!-- Imagem do projeto -->
+        <div class="project-image-wrapper">
+          <img 
+            [src]="project.foto" 
+            [alt]="project.titulo" 
+            class="project-image"
+          />
+        </div>
+        
+        <!-- Conteúdo do projeto -->
+        <div class="project-content">
+          <h3 class="project-title">{{ project.titulo }}</h3>
+          <p class="project-description">{{ project.descricao }}</p>
+          
+          <!-- Botão para abrir o projeto -->
+          <p-button 
+            label="Ver Projeto" 
+            icon="pi pi-external-link" 
+            (onClick)="openProject(project.link)"
+            styleClass="project-button">
+          </p-button>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+</div>

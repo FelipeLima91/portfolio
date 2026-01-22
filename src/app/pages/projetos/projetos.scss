@@ -1,0 +1,184 @@
+.projetos-container {
+  padding: 1rem 0.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.projetos-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+// Estilização dos cards de projeto
+.project-card {
+  margin: 0.5rem;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+  .project-card:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.project-content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex-grow: 1;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1;
+}
+
+// Customização do botão PrimeNG
+::ng-deep .project-button {
+  width: 100%;
+  
+  .p-button {
+    width: 100%;
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    border: none;
+    padding: 0.65rem 1.25rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(135deg, #4338CA, #6D28D9);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+// Customização dos controles do carrossel
+::ng-deep .p-carousel {
+  .p-carousel-content {
+    .p-carousel-prev,
+    .p-carousel-next {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: white;
+      color: #4F46E5;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #4F46E5;
+        color: white;
+        transform: scale(1.1);
+      }
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+      }
+    }
+  }
+
+  .p-carousel-indicators {
+    padding: 1.5rem 0;
+
+    .p-carousel-indicator {
+      button {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #94a3b8;
+        }
+      }
+
+      &.p-highlight button {
+        background: #4F46E5;
+        width: 32px;
+        border-radius: 6px;
+      }
+    }
+  }
+}
+
+// Responsividade
+@media (max-width: 1024px) {
+  .projetos-title {
+    font-size: 2rem;
+  }
+
+  .project-card {
+    margin: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projetos-container {
+    padding: 1rem;
+  }
+
+  .projetos-title {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    margin: 0.5rem;
+  }
+
+  .project-image-wrapper {
+    height: 200px;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+  }
+}
