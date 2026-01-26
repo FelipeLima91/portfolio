@@ -1,7 +1,7 @@
 <div class="projects-container">
   <h2>Projetos</h2>
   <div class="cards-grid">
-    <div *ngFor="let project of projects" class="project-card-wrapper" (click)="openLink(project.link)" pAnimateOnScroll enterClass="animate-enter fade-in-10 slide-in-from-b-20 animate-duration-1000">
+    <div *ngFor="let project of projects" class="project-card-wrapper" (click)="openLink(project.link)" once="true" pAnimateOnScroll enterClass="animate-enter fade-in-10 slide-in-from-b-20 animate-duration-1000">
       <p-card [header]="project.title" [style]="{ width: '300px' }" styleClass="project-card">
           <ng-template pTemplate="header">
               <img [alt]="project.title" [src]="project.image" />

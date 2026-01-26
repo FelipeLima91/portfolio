@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, signal } from '@angular/core';
+import { Component, AfterViewInit, OnInit, signal } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { CurriculoComponent } from './pages/curriculo/curriculo';
 import { ProjetosComponent } from './pages/projetos/projetos';
@@ -20,10 +20,21 @@ import { ResumoComponent } from './pages/resumo/resumo';
     ])
   ]
 })
-export class App implements AfterViewInit {
+export class App implements AfterViewInit, OnInit {
   activeSection = signal<string>('curriculo');
 
+  ngOnInit() {
+    // Force scroll to top on reload
+    if (typeof window !== 'undefined') {
+      history.scrollRestoration = 'manual';
+    }
+  }
+
   ngAfterViewInit() {
+    if (typeof window !== 'undefined') {
+      window.scrollTo(0, 0);
+    }
+    
     setTimeout(() => {
       this.setupSmoothScroll();
       this.setupScrollSpy();
