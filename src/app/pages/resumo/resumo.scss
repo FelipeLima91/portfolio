@@ -1,8 +1,8 @@
 .resumo-container {
   display: flex;
-  justify-content: flex-start; // Left aligned
+  justify-content: flex-start;
   align-items: center;
-  text-align: left; // Left aligned
+  text-align: left;
   width: 100%;
 }
 
@@ -20,9 +20,9 @@
 }
 
 .bio-text {
-  font-size: 3rem; // Large
+  font-size: 3rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.3;
   color: #333;
   margin: 0;
   display: flex;
@@ -30,38 +30,49 @@
   align-items: flex-start;
 
   .highlight-name {
-    color: #ff5722; // Vibrant Orange
+    color: #ff5722;
     font-weight: 600;
   }
-  
-  .typing-container {
+
+  .typing-line {
+    position: relative;
     display: inline-grid;
-    align-items: center;
     
     .typing-ghost {
       grid-area: 1 / 1;
       visibility: hidden;
       white-space: nowrap;
-      padding-right: 5px; // match wrapper padding
-      border-right: .1em solid transparent; // match wrapper border width
+      padding-right: 5px;
+      border-right: .1em solid transparent;
     }
 
     .typing-wrapper {
       grid-area: 1 / 1;
       overflow: hidden;
       white-space: nowrap;
-      border-right: .1em solid #ff5722; // Cursor
       width: 0;
-      padding-right: 5px; // spacing for cursor
-      z-index: 2;
-      
-      // Animation: 
-      // 1. Wait 2s (cursor blinks). 
-      // 2. Type for 3s.
-      animation: 
-        typing 3s steps(32, end) 2s forwards,
-        blink-caret .75s step-end infinite;
+      padding-right: 5px;
     }
+  }
+
+  // Animation for "Felipe," - starts after 2s delay
+  // Cursor visible during typing, then hides when role starts
+  .typing-name {
+    border-right: .1em solid #ff5722;
+    animation: 
+      typing-name 1s steps(8, end) 2s forwards,
+      blink-caret .75s step-end 2s 2,  // Blink only during Felipe typing
+      hide-caret 0s 3s forwards;        // Hide cursor when Felipe done
+  }
+
+  // Animation for "desenvolvedor de software"
+  // Cursor appears when starts and stays visible at end
+  .typing-role {
+    border-right: .1em solid transparent;  // Starts invisible
+    animation: 
+      typing-role 2s steps(24, end) 3s forwards,
+      show-caret 0s 3s forwards,           // Show cursor when role starts
+      blink-caret-final .75s step-end 3s infinite;  // Keep blinking forever
   }
 
   .description-text {
@@ -70,27 +81,54 @@
     line-height: 1.5;
     color: #555;
     opacity: 0;
-    // Appear after typing finishes (2s delay + 3s typing = 5s)
-    animation: fadeIn 1s ease-out 5s forwards;
+    animation: fadeIn 1s ease-out 5.5s forwards;
   }
-  
-  @media (max-width: 768px) {
-    font-size: 2rem;
-    
-    .typing-container {
-       font-size: 1.1rem; // Ensure it fits on small mobile screens
+}
+
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.3rem;
+  }
+
+  .bio-text {
+    font-size: 1.8rem;
+    line-height: 1.2;
+
+    .description-text {
+      font-size: 1rem;
+      margin-top: 0.8rem;
     }
   }
 }
 
-@keyframes typing {
+@keyframes typing-name {
   from { width: 0 }
-  to { width: 100% } // Matches the width of the ghost element exactly
+  to { width: 100% }
+}
+
+@keyframes typing-role {
+  from { width: 0 }
+  to { width: 100% }
 }
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
   50% { border-color: #ff5722 }
+}
+
+@keyframes blink-caret-final {
+  from, to { border-right-color: transparent }
+  50% { border-right-color: #ff5722 }
+}
+
+@keyframes hide-caret {
+  to { border-right-color: transparent; }
+}
+
+@keyframes show-caret {
+  to { border-right-color: #ff5722; }
 }
 
 @keyframes fadeIn {

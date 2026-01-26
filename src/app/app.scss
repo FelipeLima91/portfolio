@@ -26,12 +26,68 @@
   }
 
   .logo {
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+    }
+
     h1 {
       font-size: 1.2rem;
       font-weight: 600;
       color: #333;
       margin: 0;
       letter-spacing: -0.5px;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: #666;
+      }
+    }
+
+    .short-name {
+      display: none;
+    }
+
+    .full-name {
+      display: inline;
+    }
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+
+    span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: #333;
+      margin: 3px 0;
+      transition: all 0.3s ease;
+    }
+
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      span:nth-child(2) {
+        opacity: 0;
+      }
+
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
     }
   }
 
@@ -94,15 +150,58 @@
 @media (max-width: 768px) {
   .top-nav {
     padding: 1rem;
-    
+
     .nav-container {
-      flex-direction: column;
-      gap: 1rem;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .nav-links ul {
-      gap: 1.5rem;
-      font-size: 0.9rem;
+    .logo {
+      .short-name {
+        display: inline;
+      }
+
+      .full-name {
+        display: none;
+      }
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      max-width: 280px;
+      height: 100vh;
+      background-color: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      padding: 80px 2rem 2rem;
+      transition: right 0.3s ease;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+
+      &.open {
+        right: 0;
+      }
+
+      ul {
+        flex-direction: column;
+        gap: 0;
+
+        li {
+          a {
+            display: block;
+            padding: 1rem 0;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #eee;
+          }
+        }
+      }
     }
   }
 
@@ -110,3 +209,4 @@
     padding: 2rem 1rem;
   }
 }
+

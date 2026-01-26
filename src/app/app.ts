@@ -22,9 +22,27 @@ import { ResumoComponent } from './pages/resumo/resumo';
 })
 export class App implements AfterViewInit, OnInit {
   activeSection = signal<string>('curriculo');
+  menuOpen = signal<boolean>(false);
+
+  toggleMenu() {
+    this.menuOpen.update(v => !v);
+  }
+
+  closeMenu() {
+    this.menuOpen.set(false);
+  }
+
+  scrollToTop(event: Event) {
+    event.preventDefault();
+    this.closeMenu();
+    this.activeSection.set('resumo');
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
   ngOnInit() {
-    // Force scroll to top on reload
     if (typeof window !== 'undefined') {
       history.scrollRestoration = 'manual';
     }
@@ -54,7 +72,7 @@ export class App implements AfterViewInit, OnInit {
         }
       });
     }, {
-      rootMargin: '-50% 0px -50% 0px' // Trigger when section is in middle of viewport
+      rootMargin: '-50% 0px -50% 0px'
     });
 
     sections.forEach(section => {

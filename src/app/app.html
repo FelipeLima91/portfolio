@@ -2,22 +2,33 @@
   <header class="top-nav" @fadeIn>
     <div class="nav-container">
       <div class="logo">
-        <h1>Felipe Lima de Oliveira</h1>
+        <a href="#resumo" class="logo-link" (click)="scrollToTop($event)">
+          <h1>
+            <span class="full-name">Felipe Lima de Oliveira</span>
+            <span class="short-name">Felipe</span>
+          </h1>
+        </a>
       </div>
 
-      <nav class="nav-links">
+      <button class="hamburger" (click)="toggleMenu()" [class.active]="menuOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-links" [class.open]="menuOpen()">
         <ul>
           <li>
-            <a href="#curriculo" [class.active]="activeSection() === 'curriculo'">Curriculo</a>
+            <a href="#curriculo" [class.active]="activeSection() === 'curriculo'" (click)="closeMenu()">Curriculo</a>
           </li>
           <li>
-            <a href="#projetos" [class.active]="activeSection() === 'projetos'">Projetos</a>
+            <a href="#projetos" [class.active]="activeSection() === 'projetos'" (click)="closeMenu()">Projetos</a>
           </li>
           <li>
-            <a href="#artigos" [class.active]="activeSection() === 'artigos'">Artigos</a>
+            <a href="#artigos" [class.active]="activeSection() === 'artigos'" (click)="closeMenu()">Artigos</a>
           </li>
           <li>
-            <a href="#contato" [class.active]="activeSection() === 'contato'">Contato</a>
+            <a href="#contato" [class.active]="activeSection() === 'contato'" (click)="closeMenu()">Contato</a>
           </li>
         </ul>
       </nav>
