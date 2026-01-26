@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 
 @Component({
   selector: 'app-curriculo',
   standalone: true,
-  imports: [],
+  imports: [AnimateOnScrollModule],
   templateUrl: './curriculo.html',
   styleUrl: './curriculo.scss',
 })

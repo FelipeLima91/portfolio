@@ -25,13 +25,74 @@
   line-height: 1.2;
   color: #333;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   .highlight-name {
     color: #ff5722; // Vibrant Orange
     font-weight: 600;
   }
   
+  .typing-container {
+    display: inline-grid;
+    align-items: center;
+    
+    .typing-ghost {
+      grid-area: 1 / 1;
+      visibility: hidden;
+      white-space: nowrap;
+      padding-right: 5px; // match wrapper padding
+      border-right: .1em solid transparent; // match wrapper border width
+    }
+
+    .typing-wrapper {
+      grid-area: 1 / 1;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: .1em solid #ff5722; // Cursor
+      width: 0;
+      padding-right: 5px; // spacing for cursor
+      z-index: 2;
+      
+      // Animation: 
+      // 1. Wait 2s (cursor blinks). 
+      // 2. Type for 3s.
+      animation: 
+        typing 3s steps(32, end) 2s forwards,
+        blink-caret .75s step-end infinite;
+    }
+  }
+
+  .description-text {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    color: #555;
+    opacity: 0;
+    // Appear after typing finishes (2s delay + 3s typing = 5s)
+    animation: fadeIn 1s ease-out 5s forwards;
+  }
+  
   @media (max-width: 768px) {
     font-size: 2rem;
+    
+    .typing-container {
+       font-size: 1.1rem; // Ensure it fits on small mobile screens
+    }
   }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% } // Matches the width of the ghost element exactly
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #ff5722 }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1 }
 }

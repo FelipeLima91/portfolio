@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [],
+  imports: [AnimateOnScrollModule],
   templateUrl: './contato.html',
   styleUrl: './contato.scss',
 })
