@@ -9,10 +9,12 @@ interface Project {
   link: string;
 }
 
+import { AnimateOnScrollModule } from 'primeng/animateonscroll';
+
 @Component({
   selector: 'app-projetos',
   standalone: true,
-  imports: [CommonModule, CardModule],
+  imports: [CommonModule, CardModule, AnimateOnScrollModule],
   templateUrl: './projetos.html',
   styleUrl: './projetos.scss',
 })

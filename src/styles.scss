@@ -12,3 +12,43 @@ body {
   margin: 0;
   padding: 0;
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in-10 {
+  animation-name: fadeIn;
+  animation-fill-mode: forwards;
+}
+
+/* Base class for entry animations mostly used in enterClass */
+.animate-enter {
+  opacity: 0; /* Star invisible */
+}
+
+/* Specific class to animate sliding up from bottom 20px */
+.slide-in-from-b-20 {
+  animation-name: slideUp;
+  animation-fill-mode: forwards;
+}
+
+.animate-duration-1000 {
+  animation-duration: 1000ms;
+}
