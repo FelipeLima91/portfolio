@@ -1,21 +1,32 @@
 <div
   class="resumo-container"
   pAnimateOnScroll
+  once="true"
   enterClass="animate-enter fade-in-10 slide-in-from-b-20 animate-duration-1000"
 >
   <div class="content-wrapper">
     <p class="intro-text">Olá, meu nome é</p>
     <div class="bio-text">
-      <div class="typing-container">
-        <!-- Ghost element for layout sizing -->
-        <div class="typing-ghost" aria-hidden="true">
-          <span class="highlight-name">Felipe</span> desenvolvedor de software
-        </div>
-        <!-- Actual animated element -->
-        <div class="typing-wrapper">
-          <span class="highlight-name">Felipe</span> desenvolvedor de software
-        </div>
+      <!-- Linha 1: Felipe -->
+      <div class="typing-line typing-line-1">
+        <span class="typing-ghost" aria-hidden="true">
+          <span class="highlight-name">Felipe,</span>
+        </span>
+        <span class="typing-wrapper typing-name">
+          <span class="highlight-name">Felipe,</span>
+        </span>
       </div>
+
+      <!-- Linha 2: desenvolvedor de software -->
+      <div class="typing-line typing-line-2">
+        <span class="typing-ghost" aria-hidden="true">
+          <span class="role-text">desenvolvedor de software</span>
+        </span>
+        <span class="typing-wrapper typing-role">
+          <span class="role-text">desenvolvedor de software</span>
+        </span>
+      </div>
+
       <p class="description-text">
         que transforma requisitos de negócio em aplicações web acessíveis, seguras e observáveis, com experiência em frameworks modernos de front-end e serviços AWS.
       </p>
