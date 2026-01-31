@@ -8,6 +8,4 @@ import { AnimateOnScrollModule } from 'primeng/animateonscroll';
   templateUrl: './contato.html',
   styleUrl: './contato.scss',
 })
-export class ContatoComponent {
-
-}
+export class ContatoComponent {}

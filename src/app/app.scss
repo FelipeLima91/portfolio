@@ -208,5 +208,12 @@
   .section {
     padding: 2rem 1rem;
   }
+
+  .section-resumo {
+    min-height: 100vh;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
 }
 
