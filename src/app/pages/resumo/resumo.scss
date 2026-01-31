@@ -1,9 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap');
+
 .resumo-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
   width: 100%;
+  background-color: #1e1e1e; // VS Code dark theme background
+  border-radius: 12px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  font-family: 'Fira Code', 'Consolas', 'Monaco', monospace;
+  position: relative;
+  overflow: hidden;
+  
+  // Window dots decoration (like macOS)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    width: 12px;
+    height: 12px;
+    background: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 
+      20px 0 0 #ffbd2e,
+      40px 0 0 #27c93f;
+  }
 }
 
 .content-wrapper {
@@ -12,26 +36,33 @@
 
 .intro-text {
   font-size: 1.2rem;
-  font-weight: 500;
-  color: #666;
+  font-weight: 400;
+  color: #ffffff; // Branco
   margin: 0 0 0.5rem 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  font-family: 'Fira Code', monospace;
 }
 
 .bio-text {
   font-size: 3rem;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.3;
-  color: #333;
+  color: #ffffff;
   margin: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  font-family: 'Fira Code', monospace;
 
   .highlight-name {
-    color: #ff5722;
-    font-weight: 600;
+    color: #ce9178; // Laranja VS Code (string color)
+    font-weight: 500;
+  }
+
+  .role-text {
+    color: #569cd6; // Azul VS Code (keyword color)
+    font-weight: 400;
   }
 
   .typing-line {
@@ -58,7 +89,7 @@
   // Animation for "Felipe," - starts after 2s delay
   // Cursor visible during typing, then hides when role starts
   .typing-name {
-    border-right: .1em solid #ff5722;
+    border-right: .15em solid #ffffff; // Cursor branco
     animation: 
       typing-name 1s steps(8, end) 2s forwards,
       blink-caret .75s step-end 2s 2,  // Blink only during Felipe typing
@@ -68,7 +99,7 @@
   // Animation for "desenvolvedor de software"
   // Cursor appears when starts and stays visible at end
   .typing-role {
-    border-right: .1em solid transparent;  // Starts invisible
+    border-right: .15em solid transparent;  // Starts invisible
     animation: 
       typing-role 2s steps(24, end) 3s forwards,
       show-caret 0s 3s forwards,           // Show cursor when role starts
@@ -77,28 +108,75 @@
 
   .description-text {
     margin-top: 1rem;
-    font-size: 1.5rem;
-    line-height: 1.5;
-    color: #555;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #6a9955; // Verde VS Code (comment color)
     opacity: 0;
     animation: fadeIn 1s ease-out 5.5s forwards;
+    font-family: 'Fira Code', monospace;
+    
+    // Prefixo de comentário
+    &::before {
+      content: '// ';
+      color: #6a9955;
+    }
   }
 }
 
 @media (max-width: 768px) {
+  .resumo-container {
+    padding: 2.5rem 1.5rem 2rem 1.5rem;
+    border-radius: 0; // Sem bordas arredondadas - edge to edge
+    margin: 0; // Sem margem lateral
+    min-height: calc(100vh - 80px); // Ocupa tela toda menos header
+    
+    // Bolinhas menores no mobile
+    &::before {
+      top: 10px;
+      left: 14px;
+      width: 10px;
+      height: 10px;
+      box-shadow: 
+        16px 0 0 #ffbd2e,
+        32px 0 0 #27c93f;
+    }
+  }
+
+  .content-wrapper {
+    margin-top: 0.5rem;
+  }
+
   .intro-text {
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
+    font-size: 0.75rem;
+    letter-spacing: 0.3px;
     margin-bottom: 0.3rem;
   }
 
   .bio-text {
-    font-size: 1.8rem;
-    line-height: 1.2;
+    font-size: 1.4rem;
+    line-height: 1.3;
 
     .description-text {
-      font-size: 1rem;
+      font-size: 0.75rem;
       margin-top: 0.8rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+  }
+}
+
+// Extra small devices
+@media (max-width: 480px) {
+  .resumo-container {
+    padding: 1.8rem 0.8rem 1.2rem 0.8rem;
+    margin: 0 0.25rem;
+  }
+
+  .bio-text {
+    font-size: 1.2rem;
+
+    .description-text {
+      font-size: 0.7rem;
     }
   }
 }
@@ -115,12 +193,12 @@
 
 @keyframes blink-caret {
   from, to { border-color: transparent }
-  50% { border-color: #ff5722 }
+  50% { border-color: #ffffff } // Cursor branco
 }
 
 @keyframes blink-caret-final {
   from, to { border-right-color: transparent }
-  50% { border-right-color: #ff5722 }
+  50% { border-right-color: #ffffff }
 }
 
 @keyframes hide-caret {
@@ -128,7 +206,7 @@
 }
 
 @keyframes show-caret {
-  to { border-right-color: #ff5722; }
+  to { border-right-color: #ffffff; }
 }
 
 @keyframes fadeIn {
